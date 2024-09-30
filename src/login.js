@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import './App.css';
 
 function Login() {
-  const navigate = useNavigate(); // Define navigate
+  const navigate = useNavigate(); 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const [error, setError] = useState('');
@@ -38,8 +38,8 @@ function Login() {
 
     try {
       const token = await authenticateUser(credentials);
-      sessionStorage.setItem('hhh', token); // Store the token
-      navigate('/profile'); // Navigate to profile
+      sessionStorage.setItem('hhh', token); 
+      navigate('/profile'); 
     } catch (error) {
       console.error('Error:', error);
       setError('Failed to login. Please check your credentials.');

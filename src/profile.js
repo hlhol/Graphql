@@ -80,13 +80,12 @@ function Profile() {
         const numberFail = fail.data.audit.length;
         const ratio = pass.data.user[0].auditRatio;
 
-        // bar chart
         setChartData([
           { name: 'Pass', value: numberPass },
           { name: 'Fail', value: numberFail },
         ]);
-        setAuditRatio(ratio); // Update audit ratio state
 
+        setAuditRatio(ratio); 
       } catch (error) {
         console.error("Error fetching audit data:", error.message);
       }
@@ -104,7 +103,6 @@ function Profile() {
         const data = await getData(TransactionQuery, token, variables);
         console.log("Transaction data:", data);
 
-        //line chart
         const groupedData = data.data.transaction.reduce((acc, transaction) => {
           const month = new Date(transaction.createdAt).toLocaleString('default', { month: 'short' });
           if (!acc[month]) acc[month] = 0;
@@ -144,16 +142,16 @@ function Profile() {
         <div id="details">
           <h3><strong>User Detail:</strong></h3>
           <ul>
-            <li>Username: {userData.login || 'N/A'}</li>
-            <li>Email: {userData.email || 'N/A'}</li>
-            <li>First name: {userData.firstName || 'N/A'}</li>
-            <li>Country: {userData.campus || 'N/A'}</li>
+            <li><strong>Username:</strong> {userData.login || 'N/A'}</li>
+            <li><strong>Email:</strong> {userData.email || 'N/A'}</li>
+            <li><strong>First name:</strong> {userData.firstName || 'N/A'}</li>
+            <li><strong>Country:</strong> {userData.campus || 'N/A'}</li>
           </ul>
         </div>
         <div id="charts-container">
           <div id="auditRatio" className="chart-container">
             <h3>Audit Ratio:</h3>
-            <svg width="200" height="200">
+            <svg width="200" height="200" id='audit-ratio-chart'>
               <circle cx="100" cy="100" r="90" stroke="lightgray" strokeWidth="20" fill="none" />
               <circle
                 cx="100"
@@ -175,7 +173,7 @@ function Profile() {
             {chartData.length > 0 && <VerticalBarChart data={chartData} />}
           </div>
           <div id="progress" className="chart-container">
-            <h3>Progress by Month:</h3>
+            <h3>Points by month</h3>
             {lineChartData.length > 0 && <ProgressLineChart data={lineChartData} />}
           </div>
         </div>

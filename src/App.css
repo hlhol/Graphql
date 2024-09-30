@@ -22,39 +22,43 @@ h5 {
 #container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 800px; 
+  align-items: flex-start;
+  width: 90%; 
+  max-width: 800px; 
   background: #fff;
-  padding: 40px; 
-  border-radius: 12px; 
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; 
+}
+
+#login-form, #paragraph {
+  flex: 1;
+  margin-bottom: 20px; 
 }
 
 #login-form {
-  flex: 1;
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 #paragraph {
-  flex: 1;
-  margin-left: 20px; 
+  margin-left: 20px;
   font-family: 'Georgia', serif;
   color: #000000;
-
 }
 
 input {
-  margin: 15px 0; 
-  padding: 12px; 
+  margin: 15px 0;
+  padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 6px; 
+  border-radius: 6px;
   width: 100%;
 }
 
 button {
-  padding: 12px 24px; 
+  padding: 12px 24px;
   border: none;
-  border-radius: 6px; 
+  border-radius: 6px;
   background-color: #4CAF50;
   color: #fff;
   cursor: pointer;
@@ -62,5 +66,45 @@ button {
 
 #error-message {
   color: red;
-  margin-top: 10px; 
+  margin-top: 10px;
+}
+
+#login-form form {
+  margin-bottom: 20px; 
+}
+
+
+@media (max-width: 768px) {
+  #container {
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px; 
+  }
+
+  #login-form, #paragraph {
+    margin: 0; 
+    width: 100%; 
+  }
+
+  button {
+    width: 100%; 
+  }
+
+  body {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h5 {
+    font-size: 14px; 
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  button {
+    padding: 10px 20px; 
+  }
 }

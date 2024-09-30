@@ -1,4 +1,3 @@
-// query.js
 
 export const USER_ID_QUERY = `
   query {
