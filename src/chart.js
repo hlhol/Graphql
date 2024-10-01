@@ -21,7 +21,7 @@ const VerticalBarChart = ({ data }) => (
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="value" fill="#4CAF50" />
+        <Bar dataKey="value" fill="#f9f8fd" />
       </BarChart>
     </ResponsiveContainer>
   </div>
@@ -36,7 +36,7 @@ export const ProgressLineChart = ({ data }) => (
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="value" stroke="#8884d8" />
+        <Line type="monotone" dataKey="value" stroke="#f9f8fd" />
       </LineChart>
     </ResponsiveContainer>
   </div>
